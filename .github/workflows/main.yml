@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     # Блок services аналогичен docker-compose.yml
     env:
-      SECRET_KEY: ${{ secrests.SECRET_KEY }}
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
     services:
       postgres:
         image: postgres:13.10
