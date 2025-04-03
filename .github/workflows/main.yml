@@ -191,6 +191,7 @@ jobs:
         script: |
           cd taski
           # Выполняет pull образов с Docker Hub
+          echo "SECRET_KEY=${{ secrets.SECRET_KEY }}" > .env
           sudo docker compose -f docker-compose.production.yml pull
           # Перезапускает все контейнеры в Docker Compose
           sudo docker compose -f docker-compose.production.yml down
