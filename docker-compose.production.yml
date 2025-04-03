@@ -12,7 +12,8 @@ services:
       - pg_data_production:/var/lib/postgresql/data
   backend:
     image: saidkadam/taski_backend
-    env_file: .env
+    environment:
+      - SECRET_KEY=${SECRET_KEY}
     volumes:
       - static_volume:/backend_static
   frontend:
