@@ -155,6 +155,8 @@ jobs:
           tags: saidkadam/taski_gateway:latest
   deploy:
     runs-on: ubuntu-latest
+    env:
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
     needs: 
       # Дождёмся билда всех образов Taski
       - build_and_push_to_docker_hub
