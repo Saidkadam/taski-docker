@@ -9,8 +9,8 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     # Блок services аналогичен docker-compose.yml
-    # env:
-    #   SECRET_KEY: ${{ secrets.SECRET_KEY }}
+    env:
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
     services:
       postgres:
         image: postgres:13.10
@@ -177,6 +177,8 @@ jobs:
         source: "docker-compose.production.yml"
         target: "taski"
     - name: Executing remote ssh commands to deploy
+      env:
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
